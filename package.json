@@ -1,0 +1,27 @@
+{
+  "name": "@trt2/tinyjsonrpc-client",
+  "version": "1.0.2",
+  "description": "Tiny client library for JSON-RPC 2",
+  "main": "./lib/TinyJsonRpcClient.js",
+  "license": "MIT",
+  "author": "anders",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.20.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "rimraf": "^2.5.4"
+  },
+  "scripts": {
+    "clean": "rimraf lib/*",
+    "build": "babel src --out-dir lib",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}
