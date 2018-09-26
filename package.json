@@ -1,9 +1,10 @@
 {
   "name": "@trt2/tinyjsonrpc-client",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Tiny client library for JSON-RPC 2",
   "main": "./lib/TinyJsonRpcClient.js",
   "license": "MIT",
+  "repository": "github:trt2/tinyjsonrpc-client",
   "author": "anders",
   "dependencies": {},
   "devDependencies": {
