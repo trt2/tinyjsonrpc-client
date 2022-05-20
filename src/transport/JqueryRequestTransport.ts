@@ -1,9 +1,17 @@
-class JqueryRequestTransport {
-    constructor(params = {}) {
+import { JsonRpcRequestTransport, JsonRpcTransportRequest, JsonRpcTransportResponse } from 'src/TinyJsonRpcClient';
+
+export interface JqueryRequestTransportParams {
+    endpoint: string;
+}
+
+export default class JqueryRequestTransport implements JsonRpcRequestTransport {
+    _params: JqueryRequestTransportParams;
+
+    constructor(params: JqueryRequestTransportParams) {
         this._params = {...params};
     }
 
-    request(requestData) {
+    request(requestData: JsonRpcTransportRequest): Promise<JsonRpcTransportResponse> {
         return new Promise((resolve, reject) => {
             $.ajax({
                 type: 'POST',
@@ -15,7 +23,7 @@ class JqueryRequestTransport {
                 processData: false
             })
                 .done((response) => {
-                    if (typeof (response) === 'string' || response instanceof String) {
+                    if (typeof (response) === 'string') {
                         try {
                             if(response === '') {
                                 resolve(null);
@@ -26,7 +34,7 @@ class JqueryRequestTransport {
                             reject(e);
                         }
                     } else {
-                        reject(Error('Unable to parse server response'));
+                        reject(new Error('Unable to parse server response'));
                     }
                 })
 
@@ -35,10 +43,8 @@ class JqueryRequestTransport {
                         console.log(response);
                     }                    
 
-                    reject(Error('Response error, status=' + response.status));
+                    reject(new Error('Response error, status=' + response.status));
                 });
         });
     }
 }
-
-export default JqueryRequestTransport;
