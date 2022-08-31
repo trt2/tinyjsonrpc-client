@@ -1,2 +1,5 @@
 src/
 additional-transports/
+tsconfig.json
+.eslintrc
+.gitignore
