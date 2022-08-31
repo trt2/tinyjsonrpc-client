@@ -112,7 +112,7 @@ export default class TinyJsonRpcClient {
         });
     }
 
-    call(method: string, params?: any, notification=false) {
+    call(method: string, params?: any, notification=false): Promise<JsonRpcResponse | null> {
         return this.callObj({method, params}, notification);
     }
 
