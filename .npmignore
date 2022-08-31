@@ -1,5 +1,5 @@
 src/
 additional-transports/
 tsconfig.json
-.eslintrc
+.eslintrc.json
 .gitignore
