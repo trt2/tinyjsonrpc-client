@@ -112,16 +112,20 @@ export default class TinyJsonRpcClient {
         });
     }
 
-    call(method: string, params?: any, notification=false): Promise<JsonRpcResponse | null> {
-        return this.callObj({method, params}, notification);
+    call(method: string, params?: any): Promise<JsonRpcResponse> {
+        return this.callObj({method, params});
     }
 
-    callObj(callObj: JsonRpcRequest, notification=false): Promise<JsonRpcResponse | null> {
-        if(notification) {
-            return this._sendRequestSingle(this._createRequest(callObj));
-        }
+    callObj(callObj: JsonRpcRequest): Promise<JsonRpcResponse> {
+        return this._sendRequestSingle(this._createRequest({...callObj, id:1})) as Promise<JsonRpcResponse>;
+    }
 
-        return this._sendRequestSingle(this._createRequest({...callObj, id:1}));
+    callNotification(method: string, params?: any): Promise<null> {
+        return this.callObjRaw({method, params}) as Promise<null>;
+    }
+
+    callObjRaw(callObj: JsonRpcRequest): Promise<JsonRpcResponse | null> {
+        return this._sendRequestSingle(this._createRequest(callObj));
     }
 
     _createRequest({method, params, id}: JsonRpcRequest): JsonRpcRequest {
