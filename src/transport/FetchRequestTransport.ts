@@ -4,7 +4,7 @@ interface FetchRequestTransportParams {
     endpoint: string;
 }
 
-class FetchRequestTransport implements JsonRpcRequestTransport{
+class FetchRequestTransport implements JsonRpcRequestTransport {
     _params: FetchRequestTransportParams;
 
     constructor(params:FetchRequestTransportParams) {
