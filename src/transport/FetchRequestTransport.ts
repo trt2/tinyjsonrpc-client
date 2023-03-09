@@ -1,4 +1,4 @@
-import { JsonRpcRequestTransport, JsonRpcTransportRequest, JsonRpcTransportResponse } from 'src/TinyJsonRpcClient';
+import { JsonRpcRequestTransport, JsonRpcTransportRequest, JsonRpcTransportResponse } from '../TinyJsonRpcClient';
 
 interface FetchRequestTransportParams {
     endpoint: string;

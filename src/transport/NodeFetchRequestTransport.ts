@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 
-import { JsonRpcRequestTransport, JsonRpcTransportRequest, JsonRpcTransportResponse } from 'src/TinyJsonRpcClient';
+import { JsonRpcRequestTransport, JsonRpcTransportRequest, JsonRpcTransportResponse } from '../TinyJsonRpcClient';
 
 export interface NodeFetchRequestTransportParams {
     endpoint: string;
