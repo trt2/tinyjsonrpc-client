@@ -1,6 +1,6 @@
 import { JsonRpcRequestTransport, JsonRpcTransportRequest, JsonRpcTransportResponse } from '../TinyJsonRpcClient';
 
-export interface NodeFetchRequestTransportParams {
+export interface NodeFetchNativeTransportParams {
     endpoint: string;
 }
 
@@ -8,10 +8,10 @@ export interface NodeFetchRequestTransportParams {
  * params:
  *  endpoint - http://example.com/JsonRpc/Api
  */
-export default class NodeFetchRequestTransport implements JsonRpcRequestTransport {
-    _params: NodeFetchRequestTransportParams;
+export default class NodeFetchNativeRequestTransport implements JsonRpcRequestTransport {
+    _params: NodeFetchNativeTransportParams;
 
-    constructor(params: NodeFetchRequestTransportParams) {
+    constructor(params: NodeFetchNativeTransportParams) {
         this._params = {...params};
     }
 
